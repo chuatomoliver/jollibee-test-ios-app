@@ -1,13 +1,13 @@
 //
-//  jollibee_test_appUITestsLaunchTests.swift
-//  jollibee-test-appUITests
+//  JollibeeTestUITestsLaunchTests.swift
+//  JollibeeTestUITests
 //
 //  Created by Tom Chua on 9/14/25.
 //
 
 import XCTest
 
-final class jollibee_test_appUITestsLaunchTests: XCTestCase {
+final class JollibeeTestUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

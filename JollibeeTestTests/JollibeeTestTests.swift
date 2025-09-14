@@ -1,14 +1,14 @@
 //
-//  jollibee_test_appTests.swift
-//  jollibee-test-appTests
+//  JollibeeTestTests.swift
+//  JollibeeTestTests
 //
 //  Created by Tom Chua on 9/14/25.
 //
 
 import Testing
-@testable import jollibee_test_app
+@testable import JollibeeTest
 
-struct jollibee_test_appTests {
+struct JollibeeTestTests {
 
     @Test func example() async throws {
         // Write your test here and use APIs like `#expect(...)` to check expected conditions.

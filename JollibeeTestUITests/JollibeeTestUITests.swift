@@ -1,13 +1,13 @@
 //
-//  jollibee_test_appUITests.swift
-//  jollibee-test-appUITests
+//  JollibeeTestUITests.swift
+//  JollibeeTestUITests
 //
 //  Created by Tom Chua on 9/14/25.
 //
 
 import XCTest
 
-final class jollibee_test_appUITests: XCTestCase {
+final class JollibeeTestUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

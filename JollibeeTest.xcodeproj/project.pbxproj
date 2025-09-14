@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		BBEF6C042E76F56A00391CE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBEF6BEE2E76F56800391CE2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBEF6BF52E76F56800391CE2;
+			remoteInfo = JollibeeTest;
+		};
+		BBEF6C0E2E76F56A00391CE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBEF6BEE2E76F56800391CE2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBEF6BF52E76F56800391CE2;
+			remoteInfo = JollibeeTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BBEF6BF62E76F56800391CE2 /* JollibeeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JollibeeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBEF6C032E76F56A00391CE2 /* JollibeeTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JollibeeTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBEF6C0D2E76F56A00391CE2 /* JollibeeTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JollibeeTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		BBEF6BF82E76F56800391CE2 /* JollibeeTest */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = JollibeeTest;
+			sourceTree = "<group>";
+		};
+		BBEF6C062E76F56A00391CE2 /* JollibeeTestTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = JollibeeTestTests;
+			sourceTree = "<group>";
+		};
+		BBEF6C102E76F56A00391CE2 /* JollibeeTestUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = JollibeeTestUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BBEF6BF32E76F56800391CE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBEF6C002E76F56A00391CE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBEF6C0A2E76F56A00391CE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BBEF6BED2E76F56800391CE2 = {
+			isa = PBXGroup;
+			children = (
+				BBEF6BF82E76F56800391CE2 /* JollibeeTest */,
+				BBEF6C062E76F56A00391CE2 /* JollibeeTestTests */,
+				BBEF6C102E76F56A00391CE2 /* JollibeeTestUITests */,
+				BBEF6BF72E76F56800391CE2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BBEF6BF72E76F56800391CE2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BBEF6BF62E76F56800391CE2 /* JollibeeTest.app */,
+				BBEF6C032E76F56A00391CE2 /* JollibeeTestTests.xctest */,
+				BBEF6C0D2E76F56A00391CE2 /* JollibeeTestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BBEF6BF52E76F56800391CE2 /* JollibeeTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBEF6C172E76F56A00391CE2 /* Build configuration list for PBXNativeTarget "JollibeeTest" */;
+			buildPhases = (
+				BBEF6BF22E76F56800391CE2 /* Sources */,
+				BBEF6BF32E76F56800391CE2 /* Frameworks */,
+				BBEF6BF42E76F56800391CE2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				BBEF6BF82E76F56800391CE2 /* JollibeeTest */,
+			);
+			name = JollibeeTest;
+			packageProductDependencies = (
+			);
+			productName = JollibeeTest;
+			productReference = BBEF6BF62E76F56800391CE2 /* JollibeeTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BBEF6C022E76F56A00391CE2 /* JollibeeTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBEF6C1A2E76F56A00391CE2 /* Build configuration list for PBXNativeTarget "JollibeeTestTests" */;
+			buildPhases = (
+				BBEF6BFF2E76F56A00391CE2 /* Sources */,
+				BBEF6C002E76F56A00391CE2 /* Frameworks */,
+				BBEF6C012E76F56A00391CE2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBEF6C052E76F56A00391CE2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BBEF6C062E76F56A00391CE2 /* JollibeeTestTests */,
+			);
+			name = JollibeeTestTests;
+			packageProductDependencies = (
+			);
+			productName = JollibeeTestTests;
+			productReference = BBEF6C032E76F56A00391CE2 /* JollibeeTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BBEF6C0C2E76F56A00391CE2 /* JollibeeTestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBEF6C1D2E76F56A00391CE2 /* Build configuration list for PBXNativeTarget "JollibeeTestUITests" */;
+			buildPhases = (
+				BBEF6C092E76F56A00391CE2 /* Sources */,
+				BBEF6C0A2E76F56A00391CE2 /* Frameworks */,
+				BBEF6C0B2E76F56A00391CE2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBEF6C0F2E76F56A00391CE2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BBEF6C102E76F56A00391CE2 /* JollibeeTestUITests */,
+			);
+			name = JollibeeTestUITests;
+			packageProductDependencies = (
+			);
+			productName = JollibeeTestUITests;
+			productReference = BBEF6C0D2E76F56A00391CE2 /* JollibeeTestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BBEF6BEE2E76F56800391CE2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1630;
+				LastUpgradeCheck = 1630;
+				TargetAttributes = {
+					BBEF6BF52E76F56800391CE2 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					BBEF6C022E76F56A00391CE2 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = BBEF6BF52E76F56800391CE2;
+					};
+					BBEF6C0C2E76F56A00391CE2 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = BBEF6BF52E76F56800391CE2;
+					};
+				};
+			};
+			buildConfigurationList = BBEF6BF12E76F56800391CE2 /* Build configuration list for PBXProject "JollibeeTest" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BBEF6BED2E76F56800391CE2;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = BBEF6BF72E76F56800391CE2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BBEF6BF52E76F56800391CE2 /* JollibeeTest */,
+				BBEF6C022E76F56A00391CE2 /* JollibeeTestTests */,
+				BBEF6C0C2E76F56A00391CE2 /* JollibeeTestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BBEF6BF42E76F56800391CE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBEF6C012E76F56A00391CE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBEF6C0B2E76F56A00391CE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BBEF6BF22E76F56800391CE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBEF6BFF2E76F56A00391CE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBEF6C092E76F56A00391CE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BBEF6C052E76F56A00391CE2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBEF6BF52E76F56800391CE2 /* JollibeeTest */;
+			targetProxy = BBEF6C042E76F56A00391CE2 /* PBXContainerItemProxy */;
+		};
+		BBEF6C0F2E76F56A00391CE2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBEF6BF52E76F56800391CE2 /* JollibeeTest */;
+			targetProxy = BBEF6C0E2E76F56A00391CE2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BBEF6C152E76F56A00391CE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = ZC7WDHRJVX;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BBEF6C162E76F56A00391CE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = ZC7WDHRJVX;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BBEF6C182E76F56A00391CE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZC7WDHRJVX;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = testcompany.JollibeeTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BBEF6C192E76F56A00391CE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZC7WDHRJVX;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = testcompany.JollibeeTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BBEF6C1B2E76F56A00391CE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZC7WDHRJVX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = testcompany.JollibeeTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JollibeeTest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/JollibeeTest";
+			};
+			name = Debug;
+		};
+		BBEF6C1C2E76F56A00391CE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZC7WDHRJVX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = testcompany.JollibeeTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JollibeeTest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/JollibeeTest";
+			};
+			name = Release;
+		};
+		BBEF6C1E2E76F56A00391CE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZC7WDHRJVX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = testcompany.JollibeeTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JollibeeTest;
+			};
+			name = Debug;
+		};
+		BBEF6C1F2E76F56A00391CE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZC7WDHRJVX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = testcompany.JollibeeTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JollibeeTest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BBEF6BF12E76F56800391CE2 /* Build configuration list for PBXProject "JollibeeTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBEF6C152E76F56A00391CE2 /* Debug */,
+				BBEF6C162E76F56A00391CE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBEF6C172E76F56A00391CE2 /* Build configuration list for PBXNativeTarget "JollibeeTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBEF6C182E76F56A00391CE2 /* Debug */,
+				BBEF6C192E76F56A00391CE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBEF6C1A2E76F56A00391CE2 /* Build configuration list for PBXNativeTarget "JollibeeTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBEF6C1B2E76F56A00391CE2 /* Debug */,
+				BBEF6C1C2E76F56A00391CE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBEF6C1D2E76F56A00391CE2 /* Build configuration list for PBXNativeTarget "JollibeeTestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBEF6C1E2E76F56A00391CE2 /* Debug */,
+				BBEF6C1F2E76F56A00391CE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BBEF6BEE2E76F56800391CE2 /* Project object */;
+}
