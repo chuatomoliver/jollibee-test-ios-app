@@ -1,10 +1,3 @@
-//
-//  HomeView.swift
-//  JollibeeTestApp
-//
-//  Created by Gemini on 2024-05-20.
-//
-
 import SwiftUI
 
 struct HomeView: View {
@@ -17,11 +10,18 @@ struct HomeView: View {
         case tags = "tags"
         case category = "category"
     }
-    
+
     // State to track the currently selected tab
     @State private var selectedTab: Tab = .tasks
     @State private var isShowingDrawer = false // State for the navigation drawer
     
+    // Binding to communicate with the parent view (like the main App or ContentView)
+    // The parent view will observe this binding and navigate accordingly.
+    @Binding var isLoggedIn: Bool
+    
+    // The navigateToHome binding is redundant since isLoggedIn can handle the state change.
+    // We can remove it to simplify the code.
+
     // Mock data for the task list
     @State private var tasks = [
         Task(id: UUID(), title: "task 1", company: "JFC", status: "Open"),
@@ -30,10 +30,10 @@ struct HomeView: View {
         Task(id: UUID(), title: "task 4", company: "JFC", status: "Open"),
         Task(id: UUID(), title: "task 5", company: "JFC", status: "Open")
     ]
-    
+
     // Defines the columns for the grid layout
     private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
-    
+
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             // Main content stack
@@ -90,7 +90,6 @@ struct HomeView: View {
                 
                 // Content for the selected tab
                 VStack(alignment: .leading) {
-                    // Use a switch statement to show different content based on the selected tab
                     switch selectedTab {
                     case .tasks:
                         Text("Open Task List")
@@ -178,18 +177,30 @@ struct HomeView: View {
             // Navigation Drawer
             HStack {
                 VStack(alignment: .center, spacing: 20) {
-                    
-
                     Button(action: {
-                        // Action for Sign Out
+                        // Action for Profile
+                    }) {
+                        HStack {
+                            Image(systemName: "person.circle.fill")
+                            Text("Profile")
+                        }
+                        .foregroundColor(Color(red: 21 / 255, green: 56 / 255, blue: 135 / 255))
+                    }
+                    .padding(.top, 100)
+                    
+                    Button(action: {
+                        // Action: Set isLoggedIn to false to trigger navigation
+                        self.isLoggedIn = false
+                        // The `MapsToHome` binding is redundant.
+                        // You can rely on the `isLoggedIn` state.
                     }) {
                         HStack {
                             Image(systemName: "arrow.right.square.fill")
                             Text("Sign Out")
                         }
-                        .padding(.top, 300)
                         .foregroundColor(Color(red: 21 / 255, green: 56 / 255, blue: 135 / 255))
                     }
+                    .padding(.top, 300)
                     
                     Spacer()
                 }
@@ -202,62 +213,7 @@ struct HomeView: View {
             }
             .offset(x: isShowingDrawer ? 0 : -200)
         }
-    }
-}
-
-// Reusable view for a single task card
-struct TaskCardView: View {
-    @State var task: Task
-    
-    var body: some View {
-        HStack(spacing: 15) {
-            // Checkbox
-            Button(action: {
-                // Action to toggle completion status
-            }) {
-                Image(systemName: "square")
-                    .foregroundColor(.gray)
-            }
-            
-            // Task details
-            VStack(alignment: .leading, spacing: 5) {
-                Text(task.title)
-                    .font(.body)
-                    .fontWeight(.bold)
-                Text("Company: \(task.company)")
-                    .font(.caption)
-                    .foregroundColor(.gray)
-                Text("Status: \(task.status)")
-                    .font(.caption)
-                    .foregroundColor(.gray)
-            }
-            
-            Spacer()
-            
-            // Delete button
-            Button(action: {
-                // Action to delete task
-            }) {
-                Image(systemName: "trash.fill")
-                    .foregroundColor(.red)
-            }
-        }
-        .padding()
-        .background(Color(.systemGray6))
-        .cornerRadius(10)
-    }
-}
-
-// Simple data model for a task
-struct Task: Identifiable {
-    let id: UUID
-    var title: String
-    var company: String
-    var status: String
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
+        .navigationBarHidden(true)
+        .navigationBarTitle("", displayMode: .inline)
     }
 }

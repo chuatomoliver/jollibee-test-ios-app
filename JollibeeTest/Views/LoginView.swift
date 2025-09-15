@@ -12,6 +12,7 @@ struct LoginView: View {
     @State private var password = ""
     @State private var isPasswordVisible = false
     @State private var navigateToHome = false // State variable to trigger programmatic navigation
+    @State private var isLoggedIn = false // New state variable to track the login status
 
     var body: some View {
         ZStack {
@@ -73,6 +74,7 @@ struct LoginView: View {
                     Button(action: {
                         // This is where you would place your login logic.
                         // On successful login, you would set navigateToHome to true.
+                        isLoggedIn = true
                         navigateToHome = true
                     }) {
                         Text("Sign In")
@@ -84,7 +86,7 @@ struct LoginView: View {
                             .cornerRadius(10)
                     }
                     // Hidden NavigationLink that is activated by the state variable
-                    NavigationLink(destination: HomeView(), isActive: $navigateToHome) {
+                    NavigationLink(destination: HomeView(isLoggedIn: $isLoggedIn), isActive: $navigateToHome) {
                         EmptyView()
                     }
                     .hidden()
