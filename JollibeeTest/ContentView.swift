@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    // Declare the state variable here
+    @State private var isLoggedIn = false
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -15,7 +18,8 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 
-                NavigationLink(destination: LoginView()) {
+                // Pass the correct binding to LoginView
+                NavigationLink(destination: LoginView(isLoggedIn: $isLoggedIn)) {
                     Text("Go to Login Screen")
                         .font(.headline)
                         .foregroundColor(.white)

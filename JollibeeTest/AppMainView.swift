@@ -16,7 +16,8 @@ struct AppMainView: View {
         if isLoggedIn {
             HomeView(isLoggedIn: $isLoggedIn)
         } else {
-            LoginView()
+            // Pass the isLoggedIn binding to LoginView
+            LoginView(isLoggedIn: $isLoggedIn)
         }
     }
 }

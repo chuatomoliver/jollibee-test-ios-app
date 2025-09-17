@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 // Simple data model for a task
 struct Task: Identifiable {
     let id: UUID

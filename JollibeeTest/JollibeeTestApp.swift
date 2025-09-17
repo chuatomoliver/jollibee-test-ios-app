@@ -9,9 +9,19 @@ import SwiftUI
 
 @main
 struct JollibeeTestApp: App {
+    let persistenceController = PersistenceController.shared
+    
+    // Manage the isLoggedIn state here since this is the root view.
+    @State private var isLoggedIn: Bool = false
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isLoggedIn {
+                        HomeView(isLoggedIn: $isLoggedIn)
+                        .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            } else {
+                    LoginView(isLoggedIn: $isLoggedIn)
+            }
         }
     }
 }
