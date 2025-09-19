@@ -7,9 +7,13 @@
 
 import Foundation
 import SwiftUI
+import CoreData // Make sure to import CoreData for the managed object context
 
 // The ContactCardView now accepts a 'People' object
 struct ContactsPeopleCardView: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @State private var showingUpdateView = false // State to show/hide the update view
+
     let people: People // The Core Data object passed from HomeView
     
     // Computed property to convert the tags string back to an array
@@ -77,7 +81,8 @@ struct ContactsPeopleCardView: View {
             // Action Buttons Section
             HStack(spacing: 20) {
                 Button(action: {
-                    // Update action
+                    // Show the update view
+                    self.showingUpdateView = true
                 }) {
                     Text("Update")
                         .font(.headline)
@@ -90,6 +95,14 @@ struct ContactsPeopleCardView: View {
                 
                 Button(action: {
                     // Delete action
+                    managedObjectContext.delete(people)
+                    
+                    do {
+                        try managedObjectContext.save()
+                        print("Person deleted successfully.")
+                    } catch {
+                        print("Error deleting person: \(error.localizedDescription)")
+                    }
                 }) {
                     Text("Delete")
                         .font(.headline)
@@ -105,6 +118,11 @@ struct ContactsPeopleCardView: View {
         .background(Color(.systemBackground))
         .cornerRadius(20)
         .shadow(radius: 5)
+        // Attach the sheet to the main view body
+        .sheet(isPresented: $showingUpdateView) {
+            // The view to be presented in the sheet, passing the person object
+            ContactUpdatePerson(person: people)
+        }
     }
 }
 
@@ -126,3 +144,5 @@ struct ContactsPeopleCardView_Previews: PreviewProvider {
             .previewLayout(.sizeThatFits)
     }
 }
+
+
