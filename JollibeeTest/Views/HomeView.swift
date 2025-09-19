@@ -2,14 +2,12 @@ import SwiftUI
 import CoreData
 
 struct HomeView: View {
-    // Defines the tabs for the segmented control
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
     // Use @FetchRequest to get data for open tasks
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Tasks.task_name, ascending: true)],
-        // MARK: Add a predicate to filter for "open" tasks
         predicate: NSPredicate(format: "status == %@", "Open"),
         animation: .default
     )
@@ -18,7 +16,6 @@ struct HomeView: View {
     // A separate fetch request for completed tasks
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Tasks.task_name, ascending: true)],
-        // MARK: Add a predicate to filter for "completed" tasks
         predicate: NSPredicate(format: "status == %@", "Completed"),
         animation: .default
     )
@@ -35,18 +32,16 @@ struct HomeView: View {
     
     // State to track the currently selected tab
     @State private var selectedTab: Tab = .tasks
-    @State private var isShowingDrawer = false // State for the navigation drawer
+    @State private var isShowingDrawer = false
     
-    // Binding to communicate with the parent view (like the main App or ContentView)
-    // The parent view will observe this binding and navigate accordingly.
+    // Binding to communicate with the parent view
     @Binding var isLoggedIn: Bool
     
     // Defines the columns for the grid layout
     private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
     
     var body: some View {
-        // Must be in a NavigationView to use NavigationLink
-        NavigationView {
+        NavigationStack { // Use NavigationStack for modern navigation
             ZStack(alignment: .bottomTrailing) {
                 // Main content stack
                 VStack(alignment: .leading, spacing: 0) {
@@ -65,7 +60,6 @@ struct HomeView: View {
                             .font(.headline)
                             .foregroundColor(.black)
                         Spacer()
-                        // Hidden placeholder for alignment
                         Image(systemName: "line.horizontal.3")
                             .hidden()
                     }
@@ -101,65 +95,83 @@ struct HomeView: View {
                     .padding(.top, 5)
                     
                     // Content for the selected tab
-                    VStack(alignment: .leading) {
-                        switch selectedTab {
-                        case .tasks:
+                    switch selectedTab {
+                    case .tasks:
+                        VStack(alignment: .leading) {
                             HStack {
                                 Text("Open Task List")
                                     .font(.headline)
                                     .fontWeight(.bold)
-                                    .padding(.top)
-                                
                                 Spacer()
-                                
                                 NavigationLink(destination: AddTaskScreen()) {
-                                    HStack(spacing: 4) { // Use HStack to place elements side by side
+                                    HStack(spacing: 4) {
                                         Text("Add Task")
                                         Image(systemName: "plus")
                                     }
                                     .font(.headline)
                                     .foregroundColor(Color(red: 21 / 255, green: 56 / 255, blue: 135 / 255))
                                 }
-                                .padding(.top)
                             }
-                            // Show List of open tasks
+                            .padding(.top)
                             ScrollView {
-                                // MARK: Use the new `openTasks` fetch request
                                 ForEach(openTasks) { task in
                                     TaskOpenCardView(task: task)
                                         .padding(.vertical, 5)
                                 }
                             }
-                        case .completed:
-                            VStack(alignment: .leading) {
-                                Text("Completed Tasks")
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-                                    .padding(.top)
-                                
-                                if !completedTasks.isEmpty {
-                                    ScrollView {
-                                        // MARK: Use the new `completedTasks` fetch request
-                                        ForEach(completedTasks) { task in
-                                            TaskCardCompleteView(task: task)
-                                                .padding(.vertical, 5)
-                                        }
-                                    }
-                                } else {
-                                    Text("No completed tasks yet.")
-                                        .foregroundColor(.secondary)
-                                        .padding()
-                                }
-                            }
-                        case .contacts_people:
-                            Text("People Contacts")
+                        }
+                        .padding(.horizontal)
+                        
+                    case .completed:
+                        VStack(alignment: .leading) {
+                            Text("Completed Tasks")
                                 .font(.headline)
                                 .fontWeight(.bold)
                                 .padding(.top)
+                            
+                            if !completedTasks.isEmpty {
+                                ScrollView {
+                                    ForEach(completedTasks) { task in
+                                        TaskCardCompleteView(task: task)
+                                            .padding(.vertical, 5)
+                                    }
+                                }
+                            } else {
+                                Text("No completed tasks yet.")
+                                    .foregroundColor(.secondary)
+                                    .padding()
+                            }
+                        }
+                        .padding(.horizontal)
+                        
+                    case .contacts_people:
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Text("People Contacts")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                Spacer()
+                                NavigationLink(destination: ContactsAddPersonView()) {
+                                    HStack(spacing: 4) {
+                                        Text("Add People") // Changed text for clarity
+                                        Image(systemName: "plus")
+                                    }
+                                    .font(.headline)
+                                    .foregroundColor(Color(red: 21 / 255, green: 56 / 255, blue: 135 / 255))
+                                }
+                            }
+                            .padding(.top)
+                            
                             Text("People contacts not implemented.")
                                 .foregroundColor(.secondary)
                                 .padding()
-                        case .contacts_business:
+                            
+                            Spacer() // Pushes content to the top
+                        }
+                        .padding(.horizontal)
+                        
+                    case .contacts_business:
+                        VStack(alignment: .leading) {
                             Text("Business Contacts")
                                 .font(.headline)
                                 .fontWeight(.bold)
@@ -167,7 +179,12 @@ struct HomeView: View {
                             Text("Business contacts not implemented.")
                                 .foregroundColor(.secondary)
                                 .padding()
-                        case .tags:
+                            Spacer()
+                        }
+                        .padding(.horizontal)
+                        
+                    case .tags:
+                        VStack(alignment: .leading) {
                             Text("Tags View")
                                 .font(.headline)
                                 .fontWeight(.bold)
@@ -175,7 +192,12 @@ struct HomeView: View {
                             Text("Tags view not implemented.")
                                 .foregroundColor(.secondary)
                                 .padding()
-                        case .category:
+                            Spacer()
+                        }
+                        .padding(.horizontal)
+                        
+                    case .category:
+                        VStack(alignment: .leading) {
                             Text("Category View")
                                 .font(.headline)
                                 .fontWeight(.bold)
@@ -183,9 +205,10 @@ struct HomeView: View {
                             Text("Category view not implemented.")
                                 .foregroundColor(.secondary)
                                 .padding()
+                            Spacer()
                         }
+                        .padding(.horizontal)
                     }
-                    .padding(.horizontal)
                     
                     Spacer() // Pushes content to the top
                 }
@@ -240,6 +263,5 @@ struct HomeView: View {
             }
             .navigationBarHidden(true)
         }
-        .navigationBarHidden(true)
     }
 }

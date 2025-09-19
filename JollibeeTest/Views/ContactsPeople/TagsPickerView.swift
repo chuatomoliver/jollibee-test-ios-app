@@ -11,47 +11,44 @@ import SwiftUI
 // MARK: - TagsPickerView (Your main picker component)
 
 struct TagsPickerView: View {
-    @Binding var selectedTags: Set<String> // Use a Set for efficient selection tracking
-    let allTags: [String] // All available tags to choose from
-    
-    @State private var isDropdownVisible: Bool = false
+    @Binding var selectedTags: Set<String>
+    let allTags: [String]
     
     var body: some View {
-        VStack(alignment: .leading) {
-            // The "Tags" input field that triggers the dropdown
-            HStack {
-                Text(selectedTags.isEmpty ? "Tags" : selectedTags.sorted().joined(separator: ", "))
-                    .foregroundColor(selectedTags.isEmpty ? .secondary : .primary)
-                Spacer()
-                Image(systemName: "chevron.down")
-                    .rotationEffect(.degrees(isDropdownVisible ? 180 : 0))
-            }
-            .padding()
-            .background(Color(.systemGray6))
-            .cornerRadius(10)
-            .onTapGesture {
-                isDropdownVisible.toggle()
-            }
-            // Use an overlay to display the dropdown content
-            .overlay(
-                // The dropdown content, only visible when isDropdownVisible is true
-                VStack {
-                    if isDropdownVisible {
-                        TagsDropdownContent(
-                            selectedTags: $selectedTags,
-                            allTags: allTags,
-                            isDropdownVisible: $isDropdownVisible // Pass binding to dismiss
-                        )
-                        .background(Color.white) // Background for the dropdown itself
-                        .cornerRadius(10)
-                        .shadow(radius: 5)
-                        .transition(.opacity.combined(with: .scale)) // Optional: Add transition
+        DisclosureGroup(
+            content: {
+                VStack(alignment: .leading, spacing: 10) {
+                    ForEach(allTags, id: \.self) { tag in
+                        HStack {
+                            Image(systemName: selectedTags.contains(tag) ? "checkmark.square.fill" : "square")
+                                .foregroundColor(selectedTags.contains(tag) ? .blue : .gray)
+                            Text(tag)
+                            Spacer()
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            if selectedTags.contains(tag) {
+                                selectedTags.remove(tag)
+                            } else {
+                                selectedTags.insert(tag)
+                            }
+                        }
                     }
                 }
-                .padding(.top, 60), // Adjust this padding to position the dropdown below the input field
-                alignment: .topLeading
-            )
-        }
+                .padding(.top, 5)
+            },
+            label: {
+                HStack {
+                    Text("Tags")
+                    Spacer()
+                    if !selectedTags.isEmpty {
+                        Text(selectedTags.sorted().joined(separator: ", "))
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+        )
     }
 }
 

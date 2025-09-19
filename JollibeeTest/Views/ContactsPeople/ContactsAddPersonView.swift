@@ -1,5 +1,5 @@
 //
-//  ContactsNewPersonView.swift
+//  ContactsAddPersonView.swift
 //  JollibeeTest
 //
 //  Created by Tom Chua on 9/20/25.
@@ -7,27 +7,30 @@
 
 import Foundation
 import SwiftUI
+import CoreData
+
+// MARK: - ContactsAddPersonView
 
 // The main view for adding a new contact.
-struct ContactsNewPersonView: View {
+struct ContactsAddPersonView: View {
     @State private var name: String = ""
     @State private var email: String = ""
     @State private var phone: String = ""
     @State private var selectedBusiness: String = "No Business"
-    @State private var selectedTags: Set<String> = [] // Changed to an array
+    @State private var selectedTags: Set<String> = []
     
     // Example data for dropdowns
     let businesses = ["No Business", "Business A", "Business B", "Business C"]
     let allAvailableTags = ["Drinks", "Pork", "Chicken", "Beef", "Vegetarian", "Gluten-Free"]
     
+    // This is the correct way to declare the environment property
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     var body: some View {
-        // Use NavigationStack for a modern navigation experience
         NavigationStack {
             VStack {
-                // Use Form for a standard, group-styled list
                 Form {
                     Section {
-                        // Use .autocorrectionDisabled and .textInputAutocapitalization for specific fields
                         TextField("Name", text: $name)
                             .textInputAutocapitalization(.words)
                         
@@ -46,15 +49,15 @@ struct ContactsNewPersonView: View {
                                 Text($0)
                             }
                         }
-                        
-                        // Pass the array binding to the TagsPickerView
+                    }
+                    
+                    Section {
+                        // The correctly implemented tags picker view using DisclosureGroup
                         TagsPickerView(selectedTags: $selectedTags, allTags: allAvailableTags)
                     }
                 }
                 
-                // Add Person Button - placed outside the Form for better layout
                 Button(action: {
-                    // Action to add the new person
                     print("Adding new person with name: \(name), email: \(email), phone: \(phone), business: \(selectedBusiness), tags: \(selectedTags.joined(separator: ", "))")
                 }) {
                     Text("Add Person")
@@ -72,10 +75,30 @@ struct ContactsNewPersonView: View {
         }
     }
 }
+// MARK: - Preview Provider
 
-// Preview Provider for Xcode
-struct ContactsNewPersonView_Previews: PreviewProvider {
+struct ContactsAddPersonView_Previews: PreviewProvider {
     static var previews: some View {
-        ContactsNewPersonView()
+        ContactsAddPersonView()
+    }
+}
+
+// MARK: - PersistenceController
+
+// Simple helper to provide a managed object context for previews
+struct PersistenceController {
+    static let preview = PersistenceController()
+    let container: NSPersistentContainer
+    
+    init() {
+        container = NSPersistentContainer(name: "JollibeeTest")
+        let description = NSPersistentStoreDescription()
+        description.url = URL(fileURLWithPath: "/dev/null")
+        container.persistentStoreDescriptions = [description]
+        container.loadPersistentStores { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
     }
 }
