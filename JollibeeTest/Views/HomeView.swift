@@ -6,12 +6,23 @@ struct HomeView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
-    // Use @FetchRequest to get data from the Core Data "Tasks" entity
+    // Use @FetchRequest to get data for open tasks
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Tasks.task_name, ascending: true)],
+        // MARK: Add a predicate to filter for "open" tasks
+        predicate: NSPredicate(format: "status == %@", "open"),
         animation: .default
     )
-    private var tasks: FetchedResults<Tasks>
+    private var openTasks: FetchedResults<Tasks>
+    
+    // A separate fetch request for completed tasks
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Tasks.task_name, ascending: true)],
+        // MARK: Add a predicate to filter for "completed" tasks
+        predicate: NSPredicate(format: "status == %@", "completed"),
+        animation: .default
+    )
+    private var completedTasks: FetchedResults<Tasks>
     
     enum Tab: String, CaseIterable {
         case tasks = "Task List"
@@ -93,7 +104,6 @@ struct HomeView: View {
                     VStack(alignment: .leading) {
                         switch selectedTab {
                         case .tasks:
-                            // The new HStack for the "Open Task List" title and button
                             HStack {
                                 Text("Open Task List")
                                     .font(.headline)
@@ -102,7 +112,6 @@ struct HomeView: View {
                                 
                                 Spacer()
                                 
-                                // New button
                                 NavigationLink(destination: AddTaskScreen()) {
                                     HStack(spacing: 4) { // Use HStack to place elements side by side
                                         Text("Add Task")
@@ -113,25 +122,35 @@ struct HomeView: View {
                                 }
                                 .padding(.top)
                             }
-                        // Show List of tasks
+                            // Show List of open tasks
                             ScrollView {
-                                ForEach(tasks) { task in
+                                // MARK: Use the new `openTasks` fetch request
+                                ForEach(openTasks) { task in
                                     TaskCardView(task: task)
-                                        .onAppear {
-                                            // Debug print moved to onAppear
-                                            debugPrint(task.task_name)
-                                        }
                                         .padding(.vertical, 5)
                                 }
                             }
                         case .completed:
-                            Text("Completed Tasks")
-                                .font(.headline)
-                                .fontWeight(.bold)
-                                .padding(.top)
-                            Text("No completed tasks yet.")
-                                .foregroundColor(.secondary)
-                                .padding()
+                            VStack(alignment: .leading) {
+                                Text("Completed Tasks")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                    .padding(.top)
+                                
+                                if !completedTasks.isEmpty {
+                                    ScrollView {
+                                        // MARK: Use the new `completedTasks` fetch request
+                                        ForEach(completedTasks) { task in
+                                            TaskCardCompleteView(task: task)
+                                                .padding(.vertical, 5)
+                                        }
+                                    }
+                                } else {
+                                    Text("No completed tasks yet.")
+                                        .foregroundColor(.secondary)
+                                        .padding()
+                                }
+                            }
                         case .contacts_people:
                             Text("People Contacts")
                                 .font(.headline)
@@ -198,7 +217,6 @@ struct HomeView: View {
                         
                         // Sign Out Button
                         Button(action: {
-                            // Correct action to trigger the parent view to show the login screen.
                             self.isLoggedIn = false
                         }) {
                             HStack {

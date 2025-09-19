@@ -51,12 +51,16 @@ struct AddTaskScreen: View {
                 .toolbar {
                     ToolbarItem(placement: .confirmationAction) {
                         Button("Save") {
-                            // Corrected logic to save the new task
                             // Changed `Task` to `Tasks` to match the Core Data entity class name
                             let newTask = Tasks(context: managedObjectContext)
-                            newTask.task_name = taskTitle // Note: changed `title` to `task_name
+                            
+                            // MARK: FIX - Set the id to the next auto-incrementing integer
+                            newTask.id = getNextAutoIncrementId(context: managedObjectContext)
+                            
+                            newTask.task_name = taskTitle
                             newTask.company_for = taskDescription
                             newTask.status = taskStatus.rawValue
+                            
                             do {
                                 try managedObjectContext.save()
                             } catch {
@@ -75,11 +79,28 @@ struct AddTaskScreen: View {
     }
 }
 
+// A function to get the next auto-incrementing ID
+func getNextAutoIncrementId(context: NSManagedObjectContext) -> Int64 {
+    let fetchRequest: NSFetchRequest<Tasks> = Tasks.fetchRequest()
+    let sortDescriptor = NSSortDescriptor(key: "id", ascending: false) // MARK: Use the correct key for sorting
+    fetchRequest.sortDescriptors = [sortDescriptor]
+    fetchRequest.fetchLimit = 1
+    
+    do {
+        let tasks = try context.fetch(fetchRequest)
+        // If there are tasks, get the max ID and add 1.
+        // Otherwise, start from 1.
+        let maxId = tasks.first?.id ?? 0
+        return maxId + 1
+    } catch {
+        print("Error fetching max ID: \(error)")
+        return 1
+    }
+}
+
 // Preview to see the screen in Xcode Canvas
 struct AddTaskScreen_Previews: PreviewProvider {
     static var previews: some View {
         return AddTaskScreen()
     }
 }
-
-
