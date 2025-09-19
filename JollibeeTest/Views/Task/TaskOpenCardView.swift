@@ -1,8 +1,8 @@
 //
-//  TaskCardView.swift
-//  JollibeeTest
+//  TaskCardView.swift
+//  JollibeeTest
 //
-//  Created by Tom Chua on 9/15/25.
+//  Created by Tom Chua on 9/15/25.
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import SwiftUI
 import CoreData
 
 // Reusable view for a single task card
-struct TaskCardView: View {
+struct TaskOpenCardView: View {
     // 1. Change @State to a regular `let` constant.
     let task: Tasks
     
@@ -21,9 +21,19 @@ struct TaskCardView: View {
         HStack(spacing: 15) {
             // Checkbox
             Button(action: {
-                // Action to toggle completion status
-                // You can add logic here to update the task's status
+                // MARK: Fix the logic here.
+                // The task passed to this view has a status of "Open".
+                // The button's action should change the status to "Completed".
+                self.task.status = "Completed"
+                
+                // Save the context to persist the change
+                do {
+                    try self.managedObjectContext.save()
+                } catch {
+                    print("Error saving context: \(error.localizedDescription)")
+                }
             }) {
+                // MARK: Update the image to reflect the status
                 Image(systemName: "square")
                     .foregroundColor(.gray)
             }

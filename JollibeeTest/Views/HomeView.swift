@@ -10,7 +10,7 @@ struct HomeView: View {
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Tasks.task_name, ascending: true)],
         // MARK: Add a predicate to filter for "open" tasks
-        predicate: NSPredicate(format: "status == %@", "open"),
+        predicate: NSPredicate(format: "status == %@", "Open"),
         animation: .default
     )
     private var openTasks: FetchedResults<Tasks>
@@ -19,7 +19,7 @@ struct HomeView: View {
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Tasks.task_name, ascending: true)],
         // MARK: Add a predicate to filter for "completed" tasks
-        predicate: NSPredicate(format: "status == %@", "completed"),
+        predicate: NSPredicate(format: "status == %@", "Completed"),
         animation: .default
     )
     private var completedTasks: FetchedResults<Tasks>
@@ -126,7 +126,7 @@ struct HomeView: View {
                             ScrollView {
                                 // MARK: Use the new `openTasks` fetch request
                                 ForEach(openTasks) { task in
-                                    TaskCardView(task: task)
+                                    TaskOpenCardView(task: task)
                                         .padding(.vertical, 5)
                                 }
                             }

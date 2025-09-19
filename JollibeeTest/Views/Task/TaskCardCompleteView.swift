@@ -25,7 +25,7 @@ struct TaskCardCompleteView: View {
                 // Update the status of the task. We toggle between "open" and "completed".
                 // We use a nil-coalescing operator to default to "open" if the status is nil.
                 if let currentStatus = self.task.status {
-                    self.task.status = (currentStatus == "open") ? "completed" : "open"
+                    self.task.status = (currentStatus == "Open") ? "completed" : "Open"
                 } else {
                     self.task.status = "completed"
                 }
