@@ -2,7 +2,7 @@
 //  Tasks+CoreDataProperties.swift
 //  JollibeeTest
 //
-//  Created by Tom Chua on 9/18/25.
+//  Created by Tom Chua on 9/19/25.
 //
 //
 
@@ -16,7 +16,7 @@ extension Tasks {
         return NSFetchRequest<Tasks>(entityName: "Tasks")
     }
 
-    @NSManaged public var id: Int64
+    @NSManaged public var id: UUID?
     @NSManaged public var task_name: String?
     @NSManaged public var company_for: String?
     @NSManaged public var status: String?

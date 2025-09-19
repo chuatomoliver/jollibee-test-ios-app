@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB835D312E7B135F00B6709A /* People+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835D2E2E7B135F00B6709A /* People+CoreDataProperties.swift */; };
-		BB835D322E7B135F00B6709A /* People+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835D2D2E7B135F00B6709A /* People+CoreDataClass.swift */; };
-		BB835D332E7B135F00B6709A /* Tasks+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835D2F2E7B135F00B6709A /* Tasks+CoreDataClass.swift */; };
-		BB835D342E7B135F00B6709A /* Tasks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835D302E7B135F00B6709A /* Tasks+CoreDataProperties.swift */; };
+		BB835DA42E7D7F9500B6709A /* Tasks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835DA32E7D7F9500B6709A /* Tasks+CoreDataProperties.swift */; };
+		BB835DA52E7D7F9500B6709A /* Tasks+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835DA22E7D7F9500B6709A /* Tasks+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,10 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BB835D2D2E7B135F00B6709A /* People+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "People+CoreDataClass.swift"; sourceTree = "<group>"; };
-		BB835D2E2E7B135F00B6709A /* People+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "People+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		BB835D2F2E7B135F00B6709A /* Tasks+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tasks+CoreDataClass.swift"; sourceTree = "<group>"; };
-		BB835D302E7B135F00B6709A /* Tasks+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tasks+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BB835DA22E7D7F9500B6709A /* Tasks+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tasks+CoreDataClass.swift"; path = "JollibeeTest/Database/Tasks+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BB835DA32E7D7F9500B6709A /* Tasks+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tasks+CoreDataProperties.swift"; path = "JollibeeTest/Database/Tasks+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BBEF6BF62E76F56800391CE2 /* JollibeeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JollibeeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBEF6C032E76F56A00391CE2 /* JollibeeTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JollibeeTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBEF6C0D2E76F56A00391CE2 /* JollibeeTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JollibeeTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,10 +82,8 @@
 		BBEF6BED2E76F56800391CE2 = {
 			isa = PBXGroup;
 			children = (
-				BB835D2D2E7B135F00B6709A /* People+CoreDataClass.swift */,
-				BB835D2E2E7B135F00B6709A /* People+CoreDataProperties.swift */,
-				BB835D2F2E7B135F00B6709A /* Tasks+CoreDataClass.swift */,
-				BB835D302E7B135F00B6709A /* Tasks+CoreDataProperties.swift */,
+				BB835DA22E7D7F9500B6709A /* Tasks+CoreDataClass.swift */,
+				BB835DA32E7D7F9500B6709A /* Tasks+CoreDataProperties.swift */,
 				BBEF6BF82E76F56800391CE2 /* JollibeeTest */,
 				BBEF6C062E76F56A00391CE2 /* JollibeeTestTests */,
 				BBEF6C102E76F56A00391CE2 /* JollibeeTestUITests */,
@@ -251,10 +245,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB835D312E7B135F00B6709A /* People+CoreDataProperties.swift in Sources */,
-				BB835D322E7B135F00B6709A /* People+CoreDataClass.swift in Sources */,
-				BB835D332E7B135F00B6709A /* Tasks+CoreDataClass.swift in Sources */,
-				BB835D342E7B135F00B6709A /* Tasks+CoreDataProperties.swift in Sources */,
+				BB835DA42E7D7F9500B6709A /* Tasks+CoreDataProperties.swift in Sources */,
+				BB835DA52E7D7F9500B6709A /* Tasks+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

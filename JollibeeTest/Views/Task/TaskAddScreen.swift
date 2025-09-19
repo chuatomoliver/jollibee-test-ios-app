@@ -1,17 +1,17 @@
 import SwiftUI
 import Foundation
-
+import CoreData
 
 // Define the possible statuses for a task
 enum TaskStatus: String, CaseIterable, Identifiable {
-    case inProgress = "In Progress"
+    case inProgress = "Open"
     case completed = "Completed"
-    case onHold = "On Hold"
     
     var id: String { self.rawValue }
 }
 
 struct AddTaskScreen: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.dismiss) var dismiss
     
     // State variables to hold the user's input
@@ -29,7 +29,7 @@ struct AddTaskScreen: View {
                         // Use a ZStack to place a placeholder over the TextEditor
                         ZStack(alignment: .topLeading) {
                             if taskDescription.isEmpty {
-                                Text("Add a detailed description...")
+                                Text("Company For")
                                     .foregroundColor(Color(uiColor: .placeholderText))
                                     .padding(.top, 8)
                                     .padding(.leading, 4)
@@ -51,28 +51,24 @@ struct AddTaskScreen: View {
                 .toolbar {
                     ToolbarItem(placement: .confirmationAction) {
                         Button("Save") {
-                            // Add logic to save the new task here
-                            // e.g., saveTask(title: taskTitle, description: taskDescription, status: taskStatus)
+                            // Corrected logic to save the new task
+                            // Changed `Task` to `Tasks` to match the Core Data entity class name
+                            let newTask = Tasks(context: managedObjectContext)
+                            newTask.task_name = taskTitle // Note: changed `title` to `task_name
+                            newTask.company_for = taskDescription
+                            newTask.status = taskStatus.rawValue
+                            do {
+                                try managedObjectContext.save()
+                            } catch {
+                                print("Error saving task: \(error)")
+                            }
+                            
                             print("Task saved: \(taskTitle)")
                             dismiss()
                         }
                         .disabled(taskTitle.isEmpty)
                     }
                 }
-                
-                // Floating Action Button (FAB) for adding a new task
-                Button {
-                    // Action for the FAB, if needed
-                } label: {
-                    Image(systemName: "plus")
-                        .font(.title.weight(.semibold))
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .clipShape(Circle())
-                        .shadow(radius: 5)
-                }
-                .padding()
             }
         }
         .navigationBarBackButtonHidden(false)
@@ -82,6 +78,8 @@ struct AddTaskScreen: View {
 // Preview to see the screen in Xcode Canvas
 struct AddTaskScreen_Previews: PreviewProvider {
     static var previews: some View {
-        AddTaskScreen()
+        return AddTaskScreen()
     }
 }
+
+

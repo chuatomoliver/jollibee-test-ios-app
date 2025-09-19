@@ -1,7 +1,18 @@
 import SwiftUI
+import CoreData
 
 struct HomeView: View {
     // Defines the tabs for the segmented control
+    
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    // Use @FetchRequest to get data from the Core Data "Tasks" entity
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Tasks.task_name, ascending: true)],
+        animation: .default
+    )
+    private var tasks: FetchedResults<Tasks>
+    
     enum Tab: String, CaseIterable {
         case tasks = "Task List"
         case completed = "Completed"
@@ -18,15 +29,6 @@ struct HomeView: View {
     // Binding to communicate with the parent view (like the main App or ContentView)
     // The parent view will observe this binding and navigate accordingly.
     @Binding var isLoggedIn: Bool
-    
-    // Mock data for the task list
-    @State private var tasks = [
-        Task(id: UUID(), title: "task 1", company: "JFC", status: "Open"),
-        Task(id: UUID(), title: "task 2", company: "JFC", status: "Open"),
-        Task(id: UUID(), title: "task 3", company: "JFC", status: "Open"),
-        Task(id: UUID(), title: "task 4", company: "JFC", status: "Open"),
-        Task(id: UUID(), title: "task 5", company: "JFC", status: "Open")
-    ]
     
     // Defines the columns for the grid layout
     private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
@@ -111,10 +113,14 @@ struct HomeView: View {
                                 }
                                 .padding(.top)
                             }
-                            
+                        // Show List of tasks
                             ScrollView {
                                 ForEach(tasks) { task in
                                     TaskCardView(task: task)
+                                        .onAppear {
+                                            // Debug print moved to onAppear
+                                            debugPrint(task.task_name)
+                                        }
                                         .padding(.vertical, 5)
                                 }
                             }
