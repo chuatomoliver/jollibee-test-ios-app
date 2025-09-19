@@ -21,6 +21,13 @@ struct HomeView: View {
     )
     private var completedTasks: FetchedResults<Tasks>
     
+    // Fetch request for People contacts
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \People.name, ascending: true)],
+        animation: .default
+    )
+    private var people: FetchedResults<People>
+    
     enum Tab: String, CaseIterable {
         case tasks = "Task List"
         case completed = "Completed"
@@ -162,9 +169,19 @@ struct HomeView: View {
                             }
                             .padding(.top)
                             
-                            Text("People contacts not implemented.")
-                                .foregroundColor(.secondary)
-                                .padding()
+                            // The corrected ForEach loop
+                            if !people.isEmpty {
+                                ScrollView {
+                                    ForEach(people) { person in
+                                        ContactsPeopleCardView(people: person)
+                                            .padding(.vertical, 5)
+                                    }
+                                }
+                            } else {
+                                Text("No people contacts yet.")
+                                    .foregroundColor(.secondary)
+                                    .padding()
+                            }
                             
                             Spacer() // Pushes content to the top
                         }

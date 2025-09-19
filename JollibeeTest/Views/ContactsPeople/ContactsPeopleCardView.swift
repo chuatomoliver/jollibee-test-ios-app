@@ -8,13 +8,14 @@
 import Foundation
 import SwiftUI
 
-struct ContactCardView: View {
-    // You can pass this data in from a model
-    let tags = ["test test test", "Tag 4", "Tag 3qweqwe12321", "Tag Unlimited"]
-    let name = "Tom"
-    let email = "chua@gmail.com"
-    let phone = "1234567123"
-    let business = "test"
+// The ContactCardView now accepts a 'People' object
+struct ContactsPeopleCardView: View {
+    let people: People // The Core Data object passed from HomeView
+    
+    // Computed property to convert the tags string back to an array
+    var tagsArray: [String] {
+        people.tags?.components(separatedBy: ", ") ?? []
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
@@ -25,7 +26,7 @@ struct ContactCardView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
-                    ForEach(tags, id: \.self) { tag in
+                    ForEach(tagsArray, id: \.self) { tag in
                         Text(tag)
                             .padding(.horizontal, 10)
                             .padding(.vertical, 5)
@@ -45,10 +46,11 @@ struct ContactCardView: View {
                         .font(.headline)
                 }
                 HStack {
-                    Text(name)
+                    // Use data from the 'people' object
+                    Text(people.name ?? "")
                         .font(.body)
                     Spacer()
-                    Text(email)
+                    Text(people.email ?? "")
                         .font(.body)
                 }
                 .padding(.bottom, 5)
@@ -61,10 +63,11 @@ struct ContactCardView: View {
                         .font(.headline)
                 }
                 HStack {
-                    Text(phone)
+                    // Use data from the 'people' object
+                    Text(people.phone ?? "")
                         .font(.body)
                     Spacer()
-                    Text(business)
+                    Text(people.business ?? "")
                         .font(.body)
                 }
             }
@@ -106,9 +109,19 @@ struct ContactCardView: View {
 }
 
 // Preview Provider for Xcode
-struct ContactCardView_Previews: PreviewProvider {
+struct ContactsPeopleCardView_Previews: PreviewProvider {
     static var previews: some View {
-        ContactCardView()
+        // You'll need to create a mock People object for the preview
+        let context = PersistenceController.preview.container.viewContext
+        let mockPerson = People(context: context)
+        mockPerson.name = "John Doe"
+        mockPerson.email = "j.doe@example.com"
+        mockPerson.phone = "9876543210"
+        mockPerson.business = "Google"
+        mockPerson.tags = "Tag 1, Tag 2, Tag 3"
+        
+        return ContactsPeopleCardView(people: mockPerson)
+            .environment(\.managedObjectContext, context)
             .padding()
             .previewLayout(.sizeThatFits)
     }

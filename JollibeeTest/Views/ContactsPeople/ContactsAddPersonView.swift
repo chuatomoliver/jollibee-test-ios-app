@@ -19,12 +19,13 @@ struct ContactsAddPersonView: View {
     @State private var selectedBusiness: String = "No Business"
     @State private var selectedTags: Set<String> = []
     
+    // Environment variables for Core Data and view dismissal
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.dismiss) var dismiss
+    
     // Example data for dropdowns
     let businesses = ["No Business", "Business A", "Business B", "Business C"]
     let allAvailableTags = ["Drinks", "Pork", "Chicken", "Beef", "Vegetarian", "Gluten-Free"]
-    
-    // This is the correct way to declare the environment property
-    @Environment(\.managedObjectContext) var managedObjectContext
     
     var body: some View {
         NavigationStack {
@@ -52,13 +53,32 @@ struct ContactsAddPersonView: View {
                     }
                     
                     Section {
-                        // The correctly implemented tags picker view using DisclosureGroup
                         TagsPickerView(selectedTags: $selectedTags, allTags: allAvailableTags)
                     }
                 }
                 
                 Button(action: {
-                    print("Adding new person with name: \(name), email: \(email), phone: \(phone), business: \(selectedBusiness), tags: \(selectedTags.joined(separator: ", "))")
+                    // 1. Create a new Core Data object
+                    let newPerson = People(context: managedObjectContext)
+                    
+                    // 2. Assign values from the UI state
+                    newPerson.id = getPeopleNextAutoIncrementId(context: managedObjectContext)
+                    newPerson.name = name
+                    newPerson.email = email
+                    newPerson.phone = phone
+                    newPerson.business = selectedBusiness
+                    
+                    // FIX: Convert the Set of strings into a single, comma-separated String
+                    newPerson.tags = Array(selectedTags).sorted().joined(separator: ", ")
+                    
+                    // 3. Save the context
+                    do {
+                        try managedObjectContext.save()
+                        print("New person saved successfully.")
+                        dismiss() // Dismiss the view after a successful save
+                    } catch {
+                        print("Error saving person: \(error.localizedDescription)")
+                    }
                 }) {
                     Text("Add Person")
                         .font(.headline)
@@ -75,11 +95,35 @@ struct ContactsAddPersonView: View {
         }
     }
 }
+
+
+// A function to get the next auto-incrementing ID for the People entity
+func getPeopleNextAutoIncrementId(context: NSManagedObjectContext) -> Int64 {
+    // FIX: Change fetch request to fetch from the 'People' entity
+    let fetchRequest: NSFetchRequest<People> = People.fetchRequest()
+    let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
+    fetchRequest.sortDescriptors = [sortDescriptor]
+    fetchRequest.fetchLimit = 1
+    
+    do {
+        // FIX: Change entity in fetch to 'People'
+        let people = try context.fetch(fetchRequest)
+        // If there are people, get the max ID and add 1.
+        // Otherwise, start from 1.
+        let maxId = people.first?.id ?? 0
+        return maxId + 1
+    } catch {
+        print("Error fetching max ID: \(error)")
+        return 1
+    }
+}
 // MARK: - Preview Provider
 
+// This provides a temporary Core Data environment for the preview to work
 struct ContactsAddPersonView_Previews: PreviewProvider {
     static var previews: some View {
         ContactsAddPersonView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
 
