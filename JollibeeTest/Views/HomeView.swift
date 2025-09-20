@@ -28,6 +28,13 @@ struct HomeView: View {
     )
     private var people: FetchedResults<People>
     
+    // Fetch request for Business contacts
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Business.businessName, ascending: true)],
+        animation: .default
+    )
+    private var business: FetchedResults<Business>
+    
     enum Tab: String, CaseIterable {
         case tasks = "Task List"
         case completed = "Completed"
@@ -160,7 +167,7 @@ struct HomeView: View {
                                 Spacer()
                                 NavigationLink(destination: ContactsAddPersonView()) {
                                     HStack(spacing: 4) {
-                                        Text("Add People") // Changed text for clarity
+                                        Text("Add People")
                                         Image(systemName: "plus")
                                     }
                                     .font(.headline)
@@ -169,7 +176,6 @@ struct HomeView: View {
                             }
                             .padding(.top)
                             
-                            // The corrected ForEach loop
                             if !people.isEmpty {
                                 ScrollView {
                                     ForEach(people) { person in
@@ -183,19 +189,41 @@ struct HomeView: View {
                                     .padding()
                             }
                             
-                            Spacer() // Pushes content to the top
+                            Spacer()
                         }
                         .padding(.horizontal)
                         
                     case .contacts_business:
                         VStack(alignment: .leading) {
-                            Text("Business Contacts")
-                                .font(.headline)
-                                .fontWeight(.bold)
-                                .padding(.top)
-                            Text("Business contacts not implemented.")
-                                .foregroundColor(.secondary)
-                                .padding()
+                            HStack {
+                                Text("Business Contacts")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                Spacer()
+                                NavigationLink(destination: ContactAddBusinessView()) {
+                                    HStack(spacing: 4) {
+                                        Text("Add Business")
+                                        Image(systemName: "plus")
+                                    }
+                                    .font(.headline)
+                                    .foregroundColor(Color(red: 21 / 255, green: 56 / 255, blue: 135 / 255))
+                                }
+                            }
+                            .padding(.top)
+                            
+                            if !business.isEmpty {
+                                ScrollView {
+//                                    ForEach(business) { business in
+//                                        ContactBusinessCardView(business: business)
+//                                            .padding(.vertical, 5)
+//                                    }
+                                }
+                            } else {
+                                Text("No business contacts yet.")
+                                    .foregroundColor(.secondary)
+                                    .padding()
+                            }
+                            
                             Spacer()
                         }
                         .padding(.horizontal)
