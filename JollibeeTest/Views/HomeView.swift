@@ -35,6 +35,13 @@ struct HomeView: View {
     )
     private var business: FetchedResults<Business>
     
+    // Corrected Fetch request for Categories
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Category.categoryName, ascending: true)],
+        animation: .default
+    )
+    private var categories: FetchedResults<Category>
+    
     // Corrected Fetch request for Tags
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Tags.tagName, ascending: true)],
@@ -52,7 +59,7 @@ struct HomeView: View {
     }
     
     // State to track the currently selected tab
-    @State private var selectedTab: Tab = .tags
+    @State private var selectedTab: Tab = .category
     @State private var isShowingDrawer = false
     
     // Binding to communicate with the parent view
@@ -62,11 +69,9 @@ struct HomeView: View {
     private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
     
     var body: some View {
-        NavigationStack { // Use NavigationStack for modern navigation
+        NavigationStack {
             ZStack(alignment: .bottomTrailing) {
-                // Main content stack
                 VStack(alignment: .leading, spacing: 0) {
-                    // Top Navigation Bar
                     HStack {
                         Button(action: {
                             withAnimation {
@@ -87,7 +92,6 @@ struct HomeView: View {
                     .padding(.horizontal)
                     .padding(.top, 10)
                     
-                    // 3x3 Tab Grid
                     VStack(alignment: .leading) {
                         Text("Views")
                             .font(.subheadline)
@@ -115,7 +119,6 @@ struct HomeView: View {
                     .padding(.horizontal)
                     .padding(.top, 5)
                     
-                    // Content for the selected tab
                     switch selectedTab {
                     case .tasks:
                         VStack(alignment: .leading) {
@@ -255,8 +258,7 @@ struct HomeView: View {
                             
                             if !tags.isEmpty {
                                 ScrollView {
-                                    // Corrected loop to use the updated TagCardView
-                                    ForEach(tags, id: \.self) { tag in
+                                    ForEach(tags) { tag in
                                         TagCardView(tag: tag)
                                             .padding(.vertical, 5)
                                     }
@@ -273,22 +275,43 @@ struct HomeView: View {
                         
                     case .category:
                         VStack(alignment: .leading) {
-                            Text("Category View")
-                                .font(.headline)
-                                .fontWeight(.bold)
-                                .padding(.top)
-                            Text("Category view not implemented.")
-                                .foregroundColor(.secondary)
-                                .padding()
+                            HStack {
+                                Text("Categories")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                Spacer()
+                                NavigationLink(destination: CategoryAddView()) {
+                                    HStack(spacing: 4) {
+                                        Text("Add Category")
+                                        Image(systemName: "plus")
+                                    }
+                                    .font(.headline)
+                                    .foregroundColor(Color(red: 21 / 255, green: 56 / 255, blue: 135 / 255))
+                                }
+                            }
+                            .padding(.top)
+                            
+                            if !categories.isEmpty {
+                                ScrollView {
+                                    ForEach(categories) { category in
+                                        CategoryCardView(category: category)
+                                            .padding(.vertical, 5)
+                                    }
+                                }
+                            } else {
+                                Text("No categories yet.")
+                                    .foregroundColor(.secondary)
+                                    .padding()
+                            }
+                            
                             Spacer()
                         }
                         .padding(.horizontal)
                     }
                     
-                    Spacer() // Pushes content to the top
+                    Spacer()
                 }
                 
-                // Drawer overlay
                 if isShowingDrawer {
                     Color.black.opacity(0.4)
                         .edgesIgnoringSafeArea(.all)
@@ -299,7 +322,6 @@ struct HomeView: View {
                         }
                 }
                 
-                // Navigation Drawer
                 HStack {
                     VStack(alignment: .center, spacing: 20) {
                         Button(action: {
@@ -313,7 +335,6 @@ struct HomeView: View {
                         }
                         .padding(.top, 100)
                         
-                        // Sign Out Button
                         Button(action: {
                             self.isLoggedIn = false
                         }) {
