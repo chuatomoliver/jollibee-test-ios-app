@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB835DDA2E7DCDCD00B6709A /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835DD32E7DCDCD00B6709A /* Category+CoreDataProperties.swift */; };
-		BB835DDB2E7DCDCD00B6709A /* Business+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835DD02E7DCDCD00B6709A /* Business+CoreDataClass.swift */; };
-		BB835DDC2E7DCDCD00B6709A /* Business+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835DD12E7DCDCD00B6709A /* Business+CoreDataProperties.swift */; };
-		BB835DDD2E7DCDCD00B6709A /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835DD22E7DCDCD00B6709A /* Category+CoreDataClass.swift */; };
-		BB835DDE2E7DCDCD00B6709A /* People+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835DD52E7DCDCD00B6709A /* People+CoreDataProperties.swift */; };
-		BB835DDF2E7DCDCD00B6709A /* Tags+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835DD72E7DCDCD00B6709A /* Tags+CoreDataProperties.swift */; };
-		BB835DE02E7DCDCD00B6709A /* People+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835DD42E7DCDCD00B6709A /* People+CoreDataClass.swift */; };
-		BB835DE12E7DCDCD00B6709A /* Tags+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835DD62E7DCDCD00B6709A /* Tags+CoreDataClass.swift */; };
-		BB835DE22E7DCDCD00B6709A /* Tasks+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835DD82E7DCDCD00B6709A /* Tasks+CoreDataClass.swift */; };
-		BB835DE32E7DCDCD00B6709A /* Tasks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835DD92E7DCDCD00B6709A /* Tasks+CoreDataProperties.swift */; };
+		BB835E1E2E7F29F300B6709A /* People+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835E192E7F29F300B6709A /* People+CoreDataProperties.swift */; };
+		BB835E1F2E7F29F300B6709A /* People+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835E182E7F29F300B6709A /* People+CoreDataClass.swift */; };
+		BB835E202E7F29F300B6709A /* Tags+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835E1B2E7F29F300B6709A /* Tags+CoreDataProperties.swift */; };
+		BB835E212E7F29F300B6709A /* Tags+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835E1A2E7F29F300B6709A /* Tags+CoreDataClass.swift */; };
+		BB835E222E7F29F300B6709A /* Tasks+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835E1C2E7F29F300B6709A /* Tasks+CoreDataClass.swift */; };
+		BB835E232E7F29F300B6709A /* Business+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835E152E7F29F300B6709A /* Business+CoreDataProperties.swift */; };
+		BB835E242E7F29F300B6709A /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835E172E7F29F300B6709A /* Category+CoreDataProperties.swift */; };
+		BB835E252E7F29F300B6709A /* Tasks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835E1D2E7F29F300B6709A /* Tasks+CoreDataProperties.swift */; };
+		BB835E262E7F29F300B6709A /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835E162E7F29F300B6709A /* Category+CoreDataClass.swift */; };
+		BB835E272E7F29F300B6709A /* Business+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB835E142E7F29F300B6709A /* Business+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,16 +37,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BB835DD02E7DCDCD00B6709A /* Business+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Business+CoreDataClass.swift"; path = "JollibeeTest/Model/Business+CoreDataClass.swift"; sourceTree = "<group>"; };
-		BB835DD12E7DCDCD00B6709A /* Business+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Business+CoreDataProperties.swift"; path = "JollibeeTest/Model/Business+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		BB835DD22E7DCDCD00B6709A /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataClass.swift"; path = "JollibeeTest/Model/Category+CoreDataClass.swift"; sourceTree = "<group>"; };
-		BB835DD32E7DCDCD00B6709A /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataProperties.swift"; path = "JollibeeTest/Model/Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		BB835DD42E7DCDCD00B6709A /* People+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "People+CoreDataClass.swift"; path = "JollibeeTest/Model/People+CoreDataClass.swift"; sourceTree = "<group>"; };
-		BB835DD52E7DCDCD00B6709A /* People+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "People+CoreDataProperties.swift"; path = "JollibeeTest/Model/People+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		BB835DD62E7DCDCD00B6709A /* Tags+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tags+CoreDataClass.swift"; path = "JollibeeTest/Model/Tags+CoreDataClass.swift"; sourceTree = "<group>"; };
-		BB835DD72E7DCDCD00B6709A /* Tags+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tags+CoreDataProperties.swift"; path = "JollibeeTest/Model/Tags+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		BB835DD82E7DCDCD00B6709A /* Tasks+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tasks+CoreDataClass.swift"; path = "JollibeeTest/Model/Tasks+CoreDataClass.swift"; sourceTree = "<group>"; };
-		BB835DD92E7DCDCD00B6709A /* Tasks+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tasks+CoreDataProperties.swift"; path = "JollibeeTest/Model/Tasks+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BB835E142E7F29F300B6709A /* Business+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Business+CoreDataClass.swift"; path = "JollibeeTest/Model/Business+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BB835E152E7F29F300B6709A /* Business+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Business+CoreDataProperties.swift"; path = "JollibeeTest/Model/Business+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BB835E162E7F29F300B6709A /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataClass.swift"; path = "JollibeeTest/Model/Category+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BB835E172E7F29F300B6709A /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataProperties.swift"; path = "JollibeeTest/Model/Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BB835E182E7F29F300B6709A /* People+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "People+CoreDataClass.swift"; path = "JollibeeTest/Model/People+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BB835E192E7F29F300B6709A /* People+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "People+CoreDataProperties.swift"; path = "JollibeeTest/Model/People+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BB835E1A2E7F29F300B6709A /* Tags+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tags+CoreDataClass.swift"; path = "JollibeeTest/Model/Tags+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BB835E1B2E7F29F300B6709A /* Tags+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tags+CoreDataProperties.swift"; path = "JollibeeTest/Model/Tags+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BB835E1C2E7F29F300B6709A /* Tasks+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tasks+CoreDataClass.swift"; path = "JollibeeTest/Model/Tasks+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BB835E1D2E7F29F300B6709A /* Tasks+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tasks+CoreDataProperties.swift"; path = "JollibeeTest/Model/Tasks+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BBEF6BF62E76F56800391CE2 /* JollibeeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JollibeeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBEF6C032E76F56A00391CE2 /* JollibeeTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JollibeeTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBEF6C0D2E76F56A00391CE2 /* JollibeeTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JollibeeTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,16 +98,16 @@
 		BBEF6BED2E76F56800391CE2 = {
 			isa = PBXGroup;
 			children = (
-				BB835DD02E7DCDCD00B6709A /* Business+CoreDataClass.swift */,
-				BB835DD12E7DCDCD00B6709A /* Business+CoreDataProperties.swift */,
-				BB835DD22E7DCDCD00B6709A /* Category+CoreDataClass.swift */,
-				BB835DD32E7DCDCD00B6709A /* Category+CoreDataProperties.swift */,
-				BB835DD42E7DCDCD00B6709A /* People+CoreDataClass.swift */,
-				BB835DD52E7DCDCD00B6709A /* People+CoreDataProperties.swift */,
-				BB835DD62E7DCDCD00B6709A /* Tags+CoreDataClass.swift */,
-				BB835DD72E7DCDCD00B6709A /* Tags+CoreDataProperties.swift */,
-				BB835DD82E7DCDCD00B6709A /* Tasks+CoreDataClass.swift */,
-				BB835DD92E7DCDCD00B6709A /* Tasks+CoreDataProperties.swift */,
+				BB835E142E7F29F300B6709A /* Business+CoreDataClass.swift */,
+				BB835E152E7F29F300B6709A /* Business+CoreDataProperties.swift */,
+				BB835E162E7F29F300B6709A /* Category+CoreDataClass.swift */,
+				BB835E172E7F29F300B6709A /* Category+CoreDataProperties.swift */,
+				BB835E182E7F29F300B6709A /* People+CoreDataClass.swift */,
+				BB835E192E7F29F300B6709A /* People+CoreDataProperties.swift */,
+				BB835E1A2E7F29F300B6709A /* Tags+CoreDataClass.swift */,
+				BB835E1B2E7F29F300B6709A /* Tags+CoreDataProperties.swift */,
+				BB835E1C2E7F29F300B6709A /* Tasks+CoreDataClass.swift */,
+				BB835E1D2E7F29F300B6709A /* Tasks+CoreDataProperties.swift */,
 				BBEF6BF82E76F56800391CE2 /* JollibeeTest */,
 				BBEF6C062E76F56A00391CE2 /* JollibeeTestTests */,
 				BBEF6C102E76F56A00391CE2 /* JollibeeTestUITests */,
@@ -269,16 +269,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB835DDA2E7DCDCD00B6709A /* Category+CoreDataProperties.swift in Sources */,
-				BB835DDB2E7DCDCD00B6709A /* Business+CoreDataClass.swift in Sources */,
-				BB835DDC2E7DCDCD00B6709A /* Business+CoreDataProperties.swift in Sources */,
-				BB835DDD2E7DCDCD00B6709A /* Category+CoreDataClass.swift in Sources */,
-				BB835DDE2E7DCDCD00B6709A /* People+CoreDataProperties.swift in Sources */,
-				BB835DDF2E7DCDCD00B6709A /* Tags+CoreDataProperties.swift in Sources */,
-				BB835DE02E7DCDCD00B6709A /* People+CoreDataClass.swift in Sources */,
-				BB835DE12E7DCDCD00B6709A /* Tags+CoreDataClass.swift in Sources */,
-				BB835DE22E7DCDCD00B6709A /* Tasks+CoreDataClass.swift in Sources */,
-				BB835DE32E7DCDCD00B6709A /* Tasks+CoreDataProperties.swift in Sources */,
+				BB835E1E2E7F29F300B6709A /* People+CoreDataProperties.swift in Sources */,
+				BB835E1F2E7F29F300B6709A /* People+CoreDataClass.swift in Sources */,
+				BB835E202E7F29F300B6709A /* Tags+CoreDataProperties.swift in Sources */,
+				BB835E212E7F29F300B6709A /* Tags+CoreDataClass.swift in Sources */,
+				BB835E222E7F29F300B6709A /* Tasks+CoreDataClass.swift in Sources */,
+				BB835E232E7F29F300B6709A /* Business+CoreDataProperties.swift in Sources */,
+				BB835E242E7F29F300B6709A /* Category+CoreDataProperties.swift in Sources */,
+				BB835E252E7F29F300B6709A /* Tasks+CoreDataProperties.swift in Sources */,
+				BB835E262E7F29F300B6709A /* Category+CoreDataClass.swift in Sources */,
+				BB835E272E7F29F300B6709A /* Business+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
