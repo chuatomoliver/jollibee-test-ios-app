@@ -213,10 +213,10 @@ struct HomeView: View {
                             
                             if !business.isEmpty {
                                 ScrollView {
-//                                    ForEach(business) { business in
-//                                        ContactBusinessCardView(business: business)
-//                                            .padding(.vertical, 5)
-//                                    }
+                                    ForEach(business) { business in
+                                        ContactBusinessCardView(business: business)
+                                            .padding(.vertical, 5)
+                                    }
                                 }
                             } else {
                                 Text("No business contacts yet.")
