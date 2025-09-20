@@ -23,9 +23,12 @@ struct ContactAddBusinessView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.dismiss) var dismiss
     
-    // Placeholder data for the Pickers
-    let allAvailableCategories = ["Restaurant", "Retail", "Service"]
-    let allAvailableTags = ["Food", "Fashion", "Technology"]
+    // Fetch data for categories and tags from Core Data
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Category.categoryName, ascending: true)])
+    var categoriesData: FetchedResults<Category>
+    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Tags.tagName, ascending: true)])
+    var tagsData: FetchedResults<Tags>
     
     var body: some View {
         NavigationStack {
@@ -43,10 +46,12 @@ struct ContactAddBusinessView: View {
                     }
                     
                     Section(header: Text("Categories")) {
+                        let allAvailableCategories = categoriesData.compactMap { $0.categoryName }
                         CategoryPickerView(selectedCategories: $selectedCategories, allCategories: allAvailableCategories)
                     }
                     
                     Section(header: Text("Tags")) {
+                        let allAvailableTags = tagsData.compactMap { $0.tagName }
                         TagsPickerView(selectedTags: $selectedTags, allTags: allAvailableTags)
                     }
                 }

@@ -14,27 +14,34 @@ struct ContactUpdateBusiness: View {
     // The existing 'Business' object passed to this view
     @ObservedObject var business: Business
 
+    // Use @State to hold the values from the business object.
     @State private var businessName: String = ""
     @State private var businessEmail: String = ""
     
-    // Correctly use a Set for tags (for multiple selections)
+    // Use a Set for multiple tag selections.
     @State private var selectedTags: Set<String> = []
     
-    // The state variable for the selected category.
+    // A single business should only have one category, so this should be a String, not a Set.
+    // If you intend for a business to have multiple categories, keep it a Set.
     @State private var selectedCategory: Set<String> = []
     
     // Environment variables for Core Data and view dismissal
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.dismiss) var dismiss
     
-    // Example data for dropdowns
-    let allAvailableTags = ["Restaurant", "Retail", "Fast Food", "Franchise", "Technology", "Logistics"]
+    // Fetch data for categories and tags from Core Data
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Category.categoryName, ascending: true)])
+    var categoriesData: FetchedResults<Category>
     
-    // Add placeholder data for categories
-    let allAvailableCategories = ["Select a Category", "Restaurant", "Retail", "Service"]
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Tags.tagName, ascending: true)])
+    var tagsData: FetchedResults<Tags>
     
     var body: some View {
-        NavigationStack {
+        
+        let allAvailableCategories = categoriesData.compactMap { $0.categoryName }
+        let allAvailableTags = tagsData.compactMap { $0.tagName }
+        
+        return NavigationStack {
             VStack {
                 Form {
                     Section {
@@ -48,28 +55,26 @@ struct ContactUpdateBusiness: View {
 
                     }
                     
-                    // Corrected line with the right argument label.
                     Section(header: Text("Category")) {
                         CategoryPickerView(selectedCategories: $selectedCategory, allCategories: allAvailableCategories)
                     }
                     
-                    // Correctly use TagsPickerView with a Set binding
                     Section(header: Text("Tags")) {
                         TagsPickerView(selectedTags: $selectedTags, allTags: allAvailableTags)
                     }
                 }
-                    
+                        
                 Spacer()
-                    
+                        
                 // Save Button
                 Button(action: {
                     business.businessName = businessName
                     business.businessEmail = businessEmail
-                    business.tags = Array(selectedTags).joined(separator: ", ")
+                    business.tags = Array(selectedTags).sorted().joined(separator: ", ")
                     
-                    // Correctly assign the String value
-                    business.categories = Array(selectedCategory).joined(separator: ", ")
-                        
+                    // Convert the Set to a single String for storage.
+                    business.categories = Array(selectedCategory).sorted().joined(separator: ", ")
+                    
                     do {
                         try managedObjectContext.save()
                         print("Business updated successfully.")
@@ -94,10 +99,11 @@ struct ContactUpdateBusiness: View {
             .onAppear {
                 self.businessName = business.businessName ?? ""
                 self.businessEmail = business.businessEmail ?? ""
+                // Populate selectedTags from the business object's tags string
                 if let tagsString = business.tags {
                     self.selectedTags = Set(tagsString.components(separatedBy: ", "))
                 }
-                // Correctly assign the String to the state variable
+                // Populate selectedCategory from the business object's categories string
                 if let categoryString = business.categories {
                     self.selectedCategory = Set(categoryString.components(separatedBy: ", "))
                 }
