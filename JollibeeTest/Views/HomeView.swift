@@ -35,6 +35,13 @@ struct HomeView: View {
     )
     private var business: FetchedResults<Business>
     
+    // Corrected Fetch request for Tags
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Tags.tagName, ascending: true)],
+        animation: .default
+    )
+    private var tags: FetchedResults<Tags> // Corrected: Type is now Tags
+    
     enum Tab: String, CaseIterable {
         case tasks = "Task List"
         case completed = "Completed"
@@ -45,7 +52,7 @@ struct HomeView: View {
     }
     
     // State to track the currently selected tab
-    @State private var selectedTab: Tab = .tasks
+    @State private var selectedTab: Tab = .tags
     @State private var isShowingDrawer = false
     
     // Binding to communicate with the parent view
@@ -230,13 +237,36 @@ struct HomeView: View {
                         
                     case .tags:
                         VStack(alignment: .leading) {
-                            Text("Tags View")
-                                .font(.headline)
-                                .fontWeight(.bold)
-                                .padding(.top)
-                            Text("Tags view not implemented.")
-                                .foregroundColor(.secondary)
-                                .padding()
+                            HStack {
+                                Text("Tags")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                Spacer()
+                                NavigationLink(destination: TagAddView()) {
+                                    HStack(spacing: 4) {
+                                        Text("Add Tag")
+                                        Image(systemName: "plus")
+                                    }
+                                    .font(.headline)
+                                    .foregroundColor(Color(red: 21 / 255, green: 56 / 255, blue: 135 / 255))
+                                }
+                            }
+                            .padding(.top)
+                            
+                            if !tags.isEmpty {
+                                ScrollView {
+                                    // Corrected loop to use the updated TagCardView
+                                    ForEach(tags, id: \.self) { tag in
+                                        TagCardView(tag: tag)
+                                            .padding(.vertical, 5)
+                                    }
+                                }
+                            } else {
+                                Text("No tags yet.")
+                                    .foregroundColor(.secondary)
+                                    .padding()
+                            }
+                            
                             Spacer()
                         }
                         .padding(.horizontal)
