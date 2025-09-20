@@ -26,9 +26,12 @@ struct ContactUpdatePerson: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.dismiss) var dismiss
     
-    // Example data for dropdowns
-    let businesses = ["No Business", "Business A", "Business B", "Business C"]
-    let allAvailableTags = ["Drinks", "Pork", "Chicken", "Beef", "Vegetarian", "Gluten-Free"]
+    // Use FetchRequests to get dynamic data from Core Data
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Business.businessName, ascending: true)])
+    var businessesData: FetchedResults<Business>
+    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Tags.tagName, ascending: true)])
+    var tagsData: FetchedResults<Tags>
     
     var body: some View {
         NavigationStack {
@@ -49,13 +52,16 @@ struct ContactUpdatePerson: View {
                     
                     Section {
                         Picker("Business", selection: $selectedBusiness) {
-                            ForEach(businesses, id: \.self) {
-                                Text($0)
+                            Text("No Business").tag("No Business")
+                            ForEach(businessesData, id: \.self) { business in
+                                Text(business.businessName ?? "")
+                                    .tag(business.businessName ?? "")
                             }
                         }
                     }
                     
                     Section {
+                        let allAvailableTags = tagsData.compactMap { $0.tagName }
                         TagsPickerView(selectedTags: $selectedTags, allTags: allAvailableTags)
                     }
                 }
