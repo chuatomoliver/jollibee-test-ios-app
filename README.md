@@ -1,7 +1,7 @@
 # jollibee-test-ios-app
 This is a test application for Jollibee, built using Kotlin and Jetpack Compose. The app demonstrates user registration and authentication by integrating with a Laravel API.
 
-# Here is the IPA is Not able ---
+# IPA is Not available 
 
 # But here is the video demo for Jollibee Test App
 https://www.youtube.com/watch?v=lan0jGrFFWE
